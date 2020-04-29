@@ -3,80 +3,125 @@
 <head>
     <meta charset="UTF-8">
     <title>Feel the force</title>
-    <meta name="author" content="Mariana Roldan Velez | Morgan Bourdillel">
-    <meta name="description" content="A small coded application during a 24h hackathon">
-    <meta name="keywords" content="love, yoda, star wars">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
+    <meta content="Mariana Roldan Velez | Morgan Bourdillel" name="author">
+    <meta content="A small coded application during a 24h hackathon" name="description">
+    <meta content="love, yoda, star wars" name="keywords">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <link href="css/style.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/68562b10c3.js" crossorigin="anonymous"></script>
+    <script crossorigin="anonymous" src="https://kit.fontawesome.com/68562b10c3.js"></script>
 </head>
 <body>
-    <header>
-        <div class="logo-title">
-            <div class="logo">
+<header>
+    <div class="logo-title">
+        <div class="logo">
 
-            </div>
-            <h1>feel the force</h1>
         </div>
-        <div class="link">
-            <a href="/about-us"><i class="far fa-question-circle"></i></a>
-        </div>
-    </header>
-    <form action="/match" method="post">
-        <div class="grid-container">
-            <div class="left">
-                <div class="image-left">
-                    <img src="">
-                    <div>
-                        <p th:text="${perso1.name}">name</p>
-                        <p th:text="${perso1.planet}">planet</p>
-                    </div>
-                </div>
-            </div>
-            <div class="middle">
-                <div class="grid-container-middle">
-                    <div class="middle-top-left select_box">
-                        <select name="planetId" id="planet-select" >
-                            <option value="0">Planet</option>
-                            <option value="" th:each="planet: ${planets}" th:text="${planet.name}" th:value="${planet.id}">selection1</option>
-                        </select>
-                    </div>
-                    <div class="middle-top-right select_box">
-                        <select name="gender" id="gender-select">
-                            <option value="%">Gender</option>
-                            <option value="" th:each="gender: ${genders}" th:text="${gender}" th:value="${gender}">selection1</option>
-                        </select>
-                    </div>
-                    <div class="middle-middle-left select_box">
-                        <select name="eyeColor" id="eyes-select">
-                            <option value="%">Eyes</option>
-                            <option value="" th:each="eye: ${eyes}" th:text="${eye}" th:value="${eye}">selection1</option>
-                        </select>
-                    </div>
-                    <div class="middle-middle-right select_box">
-                        <select name="hairColor" id="hair-select">
-                            <option value="%">Hair</option>
-                            <option value="" th:each="hair: ${hairColors}" th:text="${hair}" th:value="${hair}">selection1</option>
-                        </select>
-                    </div>
-                    <div class="middle-bottom">
-                        <input type="submit" value="let the force decide">
-                    </div>
-                </div>
-            </div>
-            <div class="right">
-                <div class="image-right">
-                    <div >
-                        <p th:text="${perso2.name}">name</p>
-                        <p th:text="${perso2.planet}">planet</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </form>
-    <div class="lightsaber">
-
+        <h1>feel the force</h1>
     </div>
+    <div class="link">
+        <a href="/about-us"><i class="far fa-question-circle"></i></a>
+    </div>
+</header>
+<form action="/match" method="post" th:object="${perso1}">
+    <div class="grid-container">
+        <div class="left">
+            <div class="image-left">
+                <div>
+                    <label for="name">Name:</label>
+                    <input class="perso" id="name" name="name" readonly th:field="*{name}"></input>
+                </div>
+                <div>
+                    <label>Planet:</label>
+                    <input class="perso" name="planet" readonly th:field="*{planet}"></input>
+                </div>
+                <div>
+                    <label>Gender:</label>
+                    <input class="perso" name="gender" readonly th:field="*{gender}"></input>
+                </div>
+                <div>
+                    <label>Hair Color:</label>
+                    <input class="perso" name="hairColor" readonly th:field="*{hairColor}"></input>
+                </div>
+                <div>
+                    <label>Height:</label>
+                    <input class="perso" name="height" readonly th:field="*{height}"></input>
+                </div>
+                <div>
+                    <label>Eye Color:</label>
+                    <input class="perso" name="eyeColor" readonly th:field="*{eyeColor}"></input>
+                </div>
+            </div>
+        </div>
+        <div class="middle">
+            <div class="grid-container-middle">
+                <div class="middle-top-left select_box">
+                    <select id="planet-select" name="planetId">
+                        <option value="0">Planet</option>
+                        <option th:each="planet: ${planets}" th:text="${planet.name}" th:value="${planet.id}" value="">
+                            selection1
+                        </option>
+                    </select>
+                </div>
+                <div class="middle-top-right select_box">
+                    <select id="gender-select" name="genders">
+                        <option value="%">Gender</option>
+                        <option th:each="gender: ${genders}" th:text="${gender}" th:value="${gender}" value="">
+                            selection1
+                        </option>
+                    </select>
+                </div>
+                <div class="middle-middle-left select_box">
+                    <select id="eyes-select" name="eyeColors">
+                        <option value="%">Eyes</option>
+                        <option th:each="eye: ${eyes}" th:text="${eye}" th:value="${eye}" value="">selection1</option>
+                    </select>
+                </div>
+                <div class="middle-middle-right select_box">
+                    <select id="hair-select" name="hairColors">
+                        <option value="%">Hair</option>
+                        <option th:each="hair: ${hairColors}" th:text="${hair}" th:value="${hair}" value="">selection1
+                        </option>
+                    </select>
+                </div>
+                <div class="middle-bottom">
+                    <input type="submit" value="let the force decide">
+                </div>
+            </div>
+        </div>
+        <div class="right">
+            <div class="image-right">
+                <div>
+                    <label for="name">Name:</label>
+                    <p class="perso" th:text="${perso2.name}">name</p>
+                </div>
+                <div>
+                    <label>Planet:</label>
+                    <p class="perso" th:text="${perso2.planet}">planet</p>
+                </div>
+                <div>
+                    <label>Gender:</label>
+                    <p class="perso" th:text="${perso2.gender}">planet</p>
+                </div>
+                <div>
+                    <label>Hair Color:</label>
+                    <p class="perso" th:text="${perso2.hairColor}">planet</p>
+                </div>
+                <div>
+                    <label>Height:</label>
+                    <p class="perso" th:if="${perso2.height} &gt; 0" th:text="${perso2.height}">planet</p>
+                </div>
+                <div>
+                    <label>Eye Color:</label>
+                    <p class="perso" th:text="${perso2.eyeColor}">planet</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+<div class="lightsaber" data-label="Loading..">
+
+</div>
+<script type="text/javascript" src="lightsaber.js"></script>
 </body>
 </html>

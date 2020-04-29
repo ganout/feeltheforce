@@ -21,6 +21,15 @@ public class People {
         this.planet = planet;
     }
 
+    public People(String name, String eyeColor, String gender, String hairColor, int height, String planet) {
+        this.name = name;
+        this.planet = planet;
+        this.eyeColor = eyeColor;
+        this.gender = gender;
+        this.hairColor = hairColor;
+        this.height = height;
+    }
+
     public People(int id, String name, String eyeColor, String gender, int planetId, String hairColor) {
         this.id = id;
         this.name = name;

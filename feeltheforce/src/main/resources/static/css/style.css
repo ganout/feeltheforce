@@ -1,0 +1,130 @@
+@font-face {
+    font-family: 'StarJedi';
+    src: url('../Star_Jedi_V2/Star_Jedi_V2.woff') format('woff'),
+    url('../Star_Jedi_V2/Star_Jedi_V2.woff2') format('woff2'),
+    url('../Star_Jedi_V2/Star_Jedi_V2.ttf') format("truetype");
+}
+
+body {
+    background-image: url("../images/stars.jpg");
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0.7rem 0.7rem;
+}
+
+.logo{
+    background: url("../images/yoda.png") no-repeat;
+    background-size: contain;
+    width: 50px;
+    height: 50px;
+}
+
+.link a{
+    color: #CBEDA0;
+    font-size: 1.5rem;
+}
+
+.logo-title {
+    display: flex;
+    align-items: center;
+}
+
+.logo-title h1 {
+    font-family: 'StarJedi', serif;
+    letter-spacing: 0.2rem;
+    color: white;
+    font-size: 1rem;
+    margin-top: 0;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    gap: 1px 1px;
+    grid-template-areas: "left middle right";
+}
+.middle { grid-area: middle; }
+.left { grid-area: left; }
+.right { grid-area: right; }
+
+.grid-container-middle {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 4fr;
+    gap: 1px 1px;
+    grid-template-areas: "middle-top-left middle-top-right" "middle-middle-left middle-middle-right" "middle-bottom middle-bottom";
+}
+.middle-top-left { grid-area: middle-top-left; }
+.middle-top-right { grid-area: middle-top-right; }
+.middle-bottom { grid-area: middle-bottom; }
+.middle-middle-left { grid-area: middle-middle-left; }
+.middle-middle-right { grid-area: middle-middle-right; }
+
+.left, .right {
+    border: 0.2rem solid white;
+}
+
+#gender-select {
+    width: 120%;
+}
+
+
+/* SELECT */
+.select_box {
+    align-self: end;
+    width: 81px;
+    overflow: hidden;
+    position: relative;
+    padding: 10px 0;
+    margin: auto;
+}
+.middle-top-right, .middle-top-left,.middle-middle-left,.middle-middle-right {
+    text-align: center;
+}
+.middle-top-right{
+    width: 85px;
+}
+.select_box:after {
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 6px solid white;
+    position: absolute;
+    top: 40%;
+    right: 1px;
+    content: "";
+    z-index: 98;
+}
+
+.select_box select {
+    border: 0;
+    position: relative;
+    z-index: 99;
+    background: none;
+    color: white;
+    font-size: 1rem;
+    text-align: center;
+}
+
+.middle-bottom {
+    margin: auto;
+}
+
+.middle-bottom input {
+    padding: 0.5rem;
+    color: black;
+    background-color: #CBEDA0;
+    border: 2px solid #2EFF29;
+    /* offset-x | offset-y | blur-radius | spread-radius | color */
+    box-shadow: -3px -3px 2px 1px rgba(103,255,100, 0.8), 3px 3px 2px 1px rgba(103,255,100, 0.8), 3px -3px 2px 1px rgba(103,255,100, 0.8), -3px 3px 2px 1px rgba(103,255,100, 0.8);
+    border-radius: 5px;
+    font-family: 'StarJedi', serif;
+    font-size : 0.8rem;
+    letter-spacing: 0.1rem;
+}

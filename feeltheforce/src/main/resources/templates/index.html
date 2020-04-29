@@ -17,7 +17,7 @@
             <div class="logo">
 
             </div>
-            <h1>FEEL THE FORCE</h1>
+            <h1>feel the force</h1>
         </div>
         <div class="link">
             <a href="/about-us"><i class="far fa-question-circle"></i></a>
@@ -27,36 +27,36 @@
         <div class="grid-container">
             <div class="left">
                 <div class="image-left">
-                    <div th:object="${}">
-                        <p th:text="${}">name</p>
-                        <p th:text="${}">planet</p>
+                    <div>
+                        <p>name</p>
+                        <p>planet</p>
                     </div>
                 </div>
             </div>
             <div class="middle">
                 <div class="grid-container-middle">
-                    <div class="middle-top-left">
-                        <select name="planetId" id="planet-select">
-                            <option value="">planet</option>
+                    <div class="middle-top-left select_box">
+                        <select name="planetId" id="planet-select" >
+                            <option value="">Planet</option>
                             <option value="">selection1</option>
                         </select>
                     </div>
-                    <div class="middle-top-right">
+                    <div class="middle-top-right select_box">
                         <select name="gender" id="gender-select">
-                            <option value="">gender</option>
+                            <option value="0">Gender</option>
                             <option value="male">male</option>
                             <option value="female">female</option>
                         </select>
                     </div>
-                    <div class="middle-middle-left">
+                    <div class="middle-middle-left select_box">
                         <select name="eyeColor" id="eyes-select">
-                            <option value="">eyes</option>
+                            <option value="">Eyes</option>
                             <option value="">selection1</option>
                         </select>
                     </div>
-                    <div class="middle-middle-right">
+                    <div class="middle-middle-right select_box">
                         <select name="hairColor" id="hair-select">
-                            <option value="">hair</option>
+                            <option value="">Hair</option>
                             <option value="">selection1</option>
                         </select>
                     </div>
@@ -67,9 +67,9 @@
             </div>
             <div class="right">
                 <div class="image-right">
-                    <div th:object="${}">
-                        <p th:text="${}">name</p>
-                        <p th:text="${}">planet</p>
+                    <div >
+                        <p>name</p>
+                        <p>planet</p>
                     </div>
                 </div>
             </div>

@@ -57,4 +57,10 @@ public class MainController {
         return "index";
     }
 
+    @GetMapping("/about-us")
+    public String aboutUs() {
+
+        return "about-us";
+    }
+
 }

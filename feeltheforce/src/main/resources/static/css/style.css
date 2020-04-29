@@ -130,3 +130,51 @@ p{
     font-size : 0.8rem;
     letter-spacing: 0.1rem;
 }
+/*--  ABOUT US  --*/
+.dev {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 10vh;
+}
+.grid-container-card {
+    width: 40%;
+    height: 50vh;
+    background-color: rgba(50, 50, 50, 0.5);
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.5fr 0.5fr 2fr;
+    gap: 1px 1px;
+    grid-template-areas: "title" "email" "description";
+    border-radius: 15px;
+    padding: 2px 10px;
+}
+.grid-container-card:hover {
+    border: 2px solid #2EFF29;
+    padding: 0 8px;
+}
+.title {
+    grid-area: title;
+    color: #f5f923;
+    font-family: 'StarJedi', serif;
+    font-size: 0.8rem;
+    margin: auto;
+}
+
+.email {
+    grid-area: email;
+    margin: auto;
+}
+
+.email a {
+    text-decoration: none;
+    color: lightgray;
+}
+.email a:hover {
+    text-decoration: underline;
+}
+.description {
+    grid-area: description;
+    text-align: center;
+    font-size: 0.8rem;
+}

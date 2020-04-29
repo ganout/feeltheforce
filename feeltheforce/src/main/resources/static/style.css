@@ -1,0 +1,44 @@
+@font-face {
+    font-family: 'StarJedi';
+    src: url('star-jedi-font/StarJedi-DGRW.ttf') format('truetype');
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    gap: 1px 1px;
+    grid-template-areas: "left middle right";
+}
+.middle { grid-area: middle; }
+.left { grid-area: left; }
+.right { grid-area: right; }
+
+.grid-container-middle {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 4fr;
+    gap: 1px 1px;
+    grid-template-areas: "middle-top-left middle-top-right" "middle-middle-left middle-middle-right" "middle-bottom middle-bottom";
+}
+.middle-top-left { grid-area: middle-top-left; }
+.middle-top-right { grid-area: middle-top-right; }
+.middle-bottom { grid-area: middle-bottom; }
+.middle-middle-left { grid-area: middle-middle-left; }
+.middle-middle-right { grid-area: middle-middle-right; }
+
+.logo{
+
+}
+
+.link {
+
+}
+
+.logo-title {
+
+}
+
+.logo-title h1 {
+    font-family: 'StarJedi';
+}

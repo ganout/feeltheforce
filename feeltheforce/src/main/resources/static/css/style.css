@@ -41,6 +41,10 @@ header {
     margin-top: 0;
 }
 
+p{
+    color: white;
+}
+
 .grid-container {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -65,9 +69,7 @@ header {
 .middle-middle-left { grid-area: middle-middle-left; }
 .middle-middle-right { grid-area: middle-middle-right; }
 
-.left, .right {
-    border: 0.2rem solid white;
-}
+
 
 #gender-select {
     width: 120%;

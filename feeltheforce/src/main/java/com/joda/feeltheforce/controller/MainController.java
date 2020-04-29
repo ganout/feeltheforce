@@ -1,15 +1,17 @@
 package com.joda.feeltheforce.controller;
 
 import com.joda.feeltheforce.entities.People;
-import com.joda.feeltheforce.entities.Planet;
 import com.joda.feeltheforce.repository.PeopleRepository;
 import com.joda.feeltheforce.repository.PlanetRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 @Controller
 public class MainController {
@@ -19,20 +21,40 @@ public class MainController {
     @GetMapping("/")
     public String match(Model model) {
 
-
-        List<Planet> planets = planetRepository.findAll();
-        List<People> peoples = new ArrayList<>();
-        model.addAttribute("planets", planets);
-
-        model.addAttribute(peoples);
-
+        model.addAttribute("eyes", peopleRepository.findAllEye());
+        model.addAttribute("planets", planetRepository.findAll());
+        model.addAttribute("genders", peopleRepository.findAllGender());
+        model.addAttribute("hairColors", peopleRepository.findAllHairColors());
+        model.addAttribute("perso1", new People());
+        model.addAttribute("perso2", new People());
         return "index";
     }
 
+    @PostMapping("/match")
+    public String matchPost(Model model,
+                            @RequestParam() int planetId,
+                            @RequestParam String gender,
+                            @RequestParam String eyeColor,
+                            @RequestParam String hairColor) {
+        List<People> people = peopleRepository.findAllPeople(planetId, gender, eyeColor, hairColor);
+        int sizePeople = people.size();
+        People perso1 = new People();
+        People perso2 = new People();
 
-    @GetMapping("/about-us")
-    public String aboutUs() {
+        if (sizePeople > 2) {
+            Random randomNumberGenerator = new Random();
+            int[] peoplePositions = randomNumberGenerator.ints(2, 1, sizePeople).toArray();
+            perso1 = people.get(peoplePositions[0]);
+            perso2 = people.get(peoplePositions[1]);
+        }
 
-        return "about-us";
+        model.addAttribute("perso1", perso1);
+        model.addAttribute("perso2", perso2);
+        model.addAttribute("eyes", peopleRepository.findAllEye());
+        model.addAttribute("planets", planetRepository.findAll());
+        model.addAttribute("genders", peopleRepository.findAllGender());
+        model.addAttribute("hairColors", peopleRepository.findAllHairColors());
+        return "index";
     }
+
 }

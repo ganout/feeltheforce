@@ -12,8 +12,14 @@ public class People {
     private String birthYear;
     private String gender;
     private int planetId;
+    private String planet;
 
     public People() {}
+
+    public People(String name, String planet) {
+        this.name = name;
+        this.planet = planet;
+    }
 
     public People(int id, String name, String eyeColor, String gender, int planetId, String hairColor) {
         this.id = id;
@@ -102,5 +108,13 @@ public class People {
 
     public void setPlanetId(int planetId) {
         this.planetId = planetId;
+    }
+
+    public String getPlanet() {
+        return planet;
+    }
+
+    public void setPlanet(String planet) {
+        this.planet = planet;
     }
 }

@@ -18,7 +18,7 @@ public class PeopleRepository {
 
         try {
             Connection connection = DriverManager.getConnection(URL_DATABASE, SQL_USER, SQL_PASSWORD);
-            String request = "SELECT DISTINCT eye_color FROM people;";
+            String request = "SELECT DISTINCT eye_color FROM people WHERE eye_color IS NOT NULL ORDER BY eye_color;";
             PreparedStatement statement = connection.prepareStatement(request);
             ResultSet resultSet = statement.executeQuery();
 
@@ -42,7 +42,7 @@ public class PeopleRepository {
 
         try {
             Connection connection = DriverManager.getConnection(URL_DATABASE, SQL_USER, SQL_PASSWORD);
-            String request = "SELECT DISTINCT hair_color FROM people;";
+            String request = "SELECT DISTINCT hair_color FROM people WHERE hair_color IS NOT NULL ORDER BY hair_color;";
             PreparedStatement statement = connection.prepareStatement(request);
             ResultSet resultSet = statement.executeQuery();
 
@@ -66,7 +66,7 @@ public class PeopleRepository {
 
         try {
             Connection connection = DriverManager.getConnection(URL_DATABASE, SQL_USER, SQL_PASSWORD);
-            String request = "SELECT DISTINCT gender FROM people;";
+            String request = "SELECT DISTINCT gender FROM people WHERE gender IS NOT NULL ORDER BY gender;";
             PreparedStatement statement = connection.prepareStatement(request);
             ResultSet resultSet = statement.executeQuery();
 
@@ -83,4 +83,40 @@ public class PeopleRepository {
 
         return genders;
     }
+
+    public List<People> findAllPeople(int planetId, String gender, String eyeColor, String hairColor) {
+        String planetIdNew;
+        if (planetId == 0) {
+            planetIdNew = "%";
+        } else {
+            planetIdNew = String.valueOf(planetId);
+        }
+        try {
+            Connection connection = DriverManager.getConnection(URL_DATABASE, SQL_USER, SQL_PASSWORD);
+
+            String request = "SELECT people.name AS name, planet.name AS planet FROM people JOIN planet " +
+                             "ON planet.id = people.planet_id WHERE planet_id LIKE ? AND gender LIKE ? " +
+                             "AND eye_color LIKE ? AND hair_color LIKE ?;";
+            PreparedStatement statement = connection.prepareStatement(request);
+            statement.setString(1, planetIdNew);
+            statement.setString(2, gender);
+            statement.setString(3, eyeColor);
+            statement.setString(4, hairColor);
+
+            ResultSet resultSet = statement.executeQuery();
+
+            List<People> people = new ArrayList<>();
+            while(resultSet.next()) {
+                String name = resultSet.getString("name");
+                String planet = resultSet.getString("planet");
+                people.add(new People(name, planet));
+            }
+            return people;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
+
 }

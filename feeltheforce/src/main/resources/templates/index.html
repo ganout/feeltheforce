@@ -1,10 +1,82 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Feel the force</title>
+    <meta name="author" content="Mariana Roldan Velez | Morgan Bourdillel">
+    <meta name="description" content="A small coded application during a 24h hackathon">
+    <meta name="keywords" content="love, yoda, star wars">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/68562b10c3.js" crossorigin="anonymous"></script>
 </head>
 <body>
+    <header>
+        <div class="logo-title">
+            <div class="logo">
 
+            </div>
+            <h1>FEEL THE FORCE</h1>
+        </div>
+        <div class="link">
+            <a href="/about-us"><i class="far fa-question-circle"></i></a>
+        </div>
+    </header>
+    <form action="/match" methode="post">
+        <div class="grid-container">
+            <div class="left">
+                <div class="image-left">
+                    <div th:object="${}">
+                        <p th:text="${}">name</p>
+                        <p th:text="${}">planet</p>
+                    </div>
+                </div>
+            </div>
+            <div class="middle">
+                <div class="grid-container-middle">
+                    <div class="middle-top-left">
+                        <select name="planetId" id="planet-select">
+                            <option value="">planet</option>
+                            <option value="">selection1</option>
+                        </select>
+                    </div>
+                    <div class="middle-top-right">
+                        <select name="gender" id="gender-select">
+                            <option value="">gender</option>
+                            <option value="male">male</option>
+                            <option value="female">female</option>
+                        </select>
+                    </div>
+                    <div class="middle-middle-left">
+                        <select name="eyeColor" id="eyes-select">
+                            <option value="">eyes</option>
+                            <option value="">selection1</option>
+                        </select>
+                    </div>
+                    <div class="middle-middle-right">
+                        <select name="hairColor" id="hair-select">
+                            <option value="">hair</option>
+                            <option value="">selection1</option>
+                        </select>
+                    </div>
+                    <div class="middle-bottom">
+                        <input type="submit" value="let the force decide">
+                    </div>
+                </div>
+            </div>
+            <div class="right">
+                <div class="image-right">
+                    <div th:object="${}">
+                        <p th:text="${}">name</p>
+                        <p th:text="${}">planet</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="lightsaber">
+
+    </div>
 </body>
 </html>

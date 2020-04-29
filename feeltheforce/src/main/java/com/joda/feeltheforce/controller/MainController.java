@@ -13,17 +13,16 @@ import java.util.List;
 
 @Controller
 public class MainController {
+    PeopleRepository peopleRepository = new PeopleRepository();
+    PlanetRepository planetRepository = new PlanetRepository();
 
     @GetMapping("/")
     public String match(Model model) {
 
-        PlanetRepository planetRepository = new PlanetRepository();
+
         List<Planet> planets = planetRepository.findAll();
-
-        model.addAttribute(planets);
-
-        PeopleRepository peopleRepository = new PeopleRepository();
         List<People> peoples = new ArrayList<>();
+        model.addAttribute("planets", planets);
 
         model.addAttribute(peoples);
 

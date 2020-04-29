@@ -1,4 +1,5 @@
-package com.joda.feeltheforce.entity;
+package com.joda.feeltheforce.entities;
+
 
 public class People {
     private int id;

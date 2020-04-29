@@ -1,3 +1,5 @@
+package com.joda.feeltheforce.entities;
+
 public class Planet {
 
     private int id;
@@ -13,6 +15,12 @@ public class Planet {
 
     public Planet() {
 
+    }
+
+    public Planet(int id, String name) {
+
+        this.id = id;
+        this.name = name;
     }
 
     public int getId() {

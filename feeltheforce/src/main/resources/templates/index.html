@@ -23,14 +23,17 @@
             <a href="/about-us"><i class="far fa-question-circle"></i></a>
         </div>
     </header>
-    <form action="/match" method="post">
+    <form action="/match" method="post" th:object="${perso1}">
         <div class="grid-container">
             <div class="left">
                 <div class="image-left">
-                    <img src="">
-                    <div>
-                        <p th:text="${perso1.name}">name</p>
-                        <p th:text="${perso1.planet}">planet</p>
+                    <div >
+                        <input class="perso" th:field="*{name}"  name="name" readonly></input>
+                        <input class="perso"th:field="*{planet}" name="planet" readonly></input>
+                        <input class="perso"th:field="*{gender}" name="gender" readonly></input>
+                        <input class="perso"th:field="*{hairColor}" name="planet" readonly></input>
+                        <input class="perso"th:field="*{height}" name="planet" readonly></input>
+                        <input class="perso"th:field="*{eyeColor}" name="planet" readonly></input>
                     </div>
                 </div>
             </div>
@@ -43,19 +46,19 @@
                         </select>
                     </div>
                     <div class="middle-top-right select_box">
-                        <select name="gender" id="gender-select">
+                        <select name="genders" id="gender-select">
                             <option value="%">Gender</option>
                             <option value="" th:each="gender: ${genders}" th:text="${gender}" th:value="${gender}">selection1</option>
                         </select>
                     </div>
                     <div class="middle-middle-left select_box">
-                        <select name="eyeColor" id="eyes-select">
+                        <select name="eyeColors" id="eyes-select">
                             <option value="%">Eyes</option>
                             <option value="" th:each="eye: ${eyes}" th:text="${eye}" th:value="${eye}">selection1</option>
                         </select>
                     </div>
                     <div class="middle-middle-right select_box">
-                        <select name="hairColor" id="hair-select">
+                        <select name="hairColors" id="hair-select">
                             <option value="%">Hair</option>
                             <option value="" th:each="hair: ${hairColors}" th:text="${hair}" th:value="${hair}">selection1</option>
                         </select>
@@ -67,9 +70,13 @@
             </div>
             <div class="right">
                 <div class="image-right">
-                    <div >
-                        <p th:text="${perso2.name}">name</p>
-                        <p th:text="${perso2.planet}">planet</p>
+                    <div>
+                        <p class="perso" th:text="${perso2.name}">name</p>
+                        <p class="perso" th:text="${perso2.planet}">planet</p>
+                        <p class="perso" th:text="${perso2.gender}">planet</p>
+                        <p class="perso" th:text="${perso2.hairColor}">planet</p>
+                        <p class="perso" th:text="${perso2.height}" th:if="${perso2.height} &gt; 0">planet</p>
+                        <p class="perso" th:text="${perso2.eyeColor}">planet</p>
                     </div>
                 </div>
             </div>

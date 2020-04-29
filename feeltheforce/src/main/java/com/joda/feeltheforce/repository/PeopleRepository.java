@@ -94,7 +94,7 @@ public class PeopleRepository {
         try {
             Connection connection = DriverManager.getConnection(URL_DATABASE, SQL_USER, SQL_PASSWORD);
 
-            String request = "SELECT people.name AS name, planet.name AS planet FROM people JOIN planet " +
+            String request = "SELECT people.name AS name, planet.name AS planet, height, hair_color, eye_color, gender FROM people JOIN planet " +
                              "ON planet.id = people.planet_id WHERE planet_id LIKE ? AND gender LIKE ? " +
                              "AND eye_color LIKE ? AND hair_color LIKE ?;";
             PreparedStatement statement = connection.prepareStatement(request);
@@ -109,7 +109,11 @@ public class PeopleRepository {
             while(resultSet.next()) {
                 String name = resultSet.getString("name");
                 String planet = resultSet.getString("planet");
-                people.add(new People(name, planet));
+                int height = resultSet.getInt("height");
+                String genderResult = resultSet.getString("gender");
+                String hairColorResult = resultSet.getString("hair_color");
+                String eyeColorResult = resultSet.getString("eye_color");
+                people.add(new People(name, eyeColorResult, genderResult, hairColorResult, height,planet));
             }
             return people;
         } catch (SQLException e) {

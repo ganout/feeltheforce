@@ -41,10 +41,15 @@ header {
     margin-top: 0;
 }
 
-p{
+.image-left div input{
     color: white;
+    background-color: transparent;
+    border-style: none;
 }
 
+p {
+    color: white;
+}
 .grid-container {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -69,7 +74,10 @@ p{
 .middle-middle-left { grid-area: middle-middle-left; }
 .middle-middle-right { grid-area: middle-middle-right; }
 
-
+.image-left {
+    border: white solid 0.2rem;
+    border-color: #CBEDA0;
+}
 
 #gender-select {
     width: 120%;

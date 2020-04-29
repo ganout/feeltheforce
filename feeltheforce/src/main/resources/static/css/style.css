@@ -13,17 +13,17 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 0.7rem 0.7rem;
+    margin: 0.7rem 0.7rem 2rem 0.7rem;
 }
 
-.logo{
+.logo {
     background: url("../images/yoda.png") no-repeat;
     background-size: contain;
-    width: 50px;
-    height: 50px;
+    width: 6vw;
+    height: 6vw;
 }
 
-.link a{
+.link a {
     color: #CBEDA0;
     font-size: 1.5rem;
 }
@@ -37,19 +37,47 @@ header {
     font-family: 'StarJedi', serif;
     letter-spacing: 0.2rem;
     color: white;
-    font-size: 1rem;
+    font-size: 2vw;
     margin-top: 0;
 }
 
-.image-left div input{
+.image-left, .image-right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: white solid 0.2rem;
+    border-color: #CBEDA0;
+}
+
+.image-left div, .image-right div {
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    width: 100%;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    font-family: 'Roboto'
+}
+
+.image-left div input, .image-right div p {
+    width: 50%;
+    margin: 0;
+    margin-left: 0.2rem;
+    text-align: center;
+
+}
+
+.perso {
     color: white;
     background-color: transparent;
     border-style: none;
 }
 
-p {
+label {
     color: white;
+    font-weight: bolder;
 }
+
 .grid-container {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -57,9 +85,18 @@ p {
     gap: 1px 1px;
     grid-template-areas: "left middle right";
 }
-.middle { grid-area: middle; }
-.left { grid-area: left; }
-.right { grid-area: right; }
+
+.middle {
+    grid-area: middle;
+}
+
+.left {
+    grid-area: left;
+}
+
+.right {
+    grid-area: right;
+}
 
 .grid-container-middle {
     display: grid;
@@ -68,16 +105,28 @@ p {
     gap: 1px 1px;
     grid-template-areas: "middle-top-left middle-top-right" "middle-middle-left middle-middle-right" "middle-bottom middle-bottom";
 }
-.middle-top-left { grid-area: middle-top-left; }
-.middle-top-right { grid-area: middle-top-right; }
-.middle-bottom { grid-area: middle-bottom; }
-.middle-middle-left { grid-area: middle-middle-left; }
-.middle-middle-right { grid-area: middle-middle-right; }
 
-.image-left {
-    border: white solid 0.2rem;
-    border-color: #CBEDA0;
+.middle-top-left {
+    grid-area: middle-top-left;
 }
+
+.middle-top-right {
+    grid-area: middle-top-right;
+}
+
+.middle-bottom {
+    grid-area: middle-bottom;
+}
+
+.middle-middle-left {
+    grid-area: middle-middle-left;
+}
+
+.middle-middle-right {
+    grid-area: middle-middle-right;
+    /*! width: 100px; */
+}
+
 
 #gender-select {
     width: 120%;
@@ -87,17 +136,25 @@ p {
 /* SELECT */
 .select_box {
     align-self: end;
-    width: 81px;
+    width: 105px;
     overflow: hidden;
     position: relative;
     padding: 10px 0;
     margin: auto;
 }
-.middle-top-right, .middle-top-left,.middle-middle-left,.middle-middle-right {
+
+.middle-top-right, .middle-top-left, .middle-middle-left, .middle-middle-right {
     text-align: center;
 }
-.middle-top-right{
+
+.middle-top-right {
+    width: 90px;
+}
+.middle-middle-right {
     width: 85px;
+}
+.middle-middle-right select {
+    text-align: left;
 }
 .select_box:after {
     width: 0;
@@ -119,7 +176,7 @@ p {
     background: none;
     color: white;
     font-size: 1rem;
-    text-align: center;
+    padding: 0 0.5rem;
 }
 
 .middle-bottom {
@@ -132,9 +189,51 @@ p {
     background-color: #CBEDA0;
     border: 2px solid #2EFF29;
     /* offset-x | offset-y | blur-radius | spread-radius | color */
-    box-shadow: -3px -3px 2px 1px rgba(103,255,100, 0.8), 3px 3px 2px 1px rgba(103,255,100, 0.8), 3px -3px 2px 1px rgba(103,255,100, 0.8), -3px 3px 2px 1px rgba(103,255,100, 0.8);
+    box-shadow: -3px -3px 2px 1px rgba(103, 255, 100, 0.8), 3px 3px 2px 1px rgba(103, 255, 100, 0.8), 3px -3px 2px 1px rgba(103, 255, 100, 0.8), -3px 3px 2px 1px rgba(103, 255, 100, 0.8);
     border-radius: 5px;
     font-family: 'StarJedi', serif;
-    font-size : 0.8rem;
+    font-size: 0.8rem;
+    letter-spacing: 0.05rem;
+}
+
+
+.lightsaber {
+    box-sizing: border-box;
+    width: 500px;
+    height: 3rem;
+    background-color: transparent;
+    border-radius: 1.5rem;
+    position: relative;
+    color: black;
+}
+
+.lightsaber::before {
+    box-sizing: border-box;
+    content: attr(data-label);
+    display: flex;
+    align-items: center;
+    position: absolute;
+    left: 0.5em;
+    top: 0.5em;
+    bottom: 0.5em;
+    width: calc(var(--width, 0) * 1%);
+    min-width: 2rem;
+    max-width: calc(100% - 1em);
+    background-color: #CBEDA0;
+    border-radius: 1em;
+    padding: 1em;
+    font-family: 'StarJedi';
     letter-spacing: 0.1rem;
+}
+
+@media screen and (max-width: 600px) {
+    .logo {
+        width: 6vh;
+        height: 6vh;
+    }
+
+    .logo-title h1 {
+        font-size: 2vh;
+    }
+
 }

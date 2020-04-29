@@ -35,4 +35,52 @@ public class PeopleRepository {
 
         return eyes;
     }
+
+    public List<String> findAllHairColors() {
+
+        List<String> hairColors = new ArrayList<>();
+
+        try {
+            Connection connection = DriverManager.getConnection(URL_DATABASE, SQL_USER, SQL_PASSWORD);
+            String request = "SELECT DISTINCT hair_color FROM people;";
+            PreparedStatement statement = connection.prepareStatement(request);
+            ResultSet resultSet = statement.executeQuery();
+
+            while(resultSet.next()) {
+
+                String hairColor = resultSet.getString("hair_color");
+
+                hairColors.add(hairColor);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return hairColors;
+    }
+
+    public List<String> findAllGender() {
+
+        List<String> genders = new ArrayList<>();
+
+        try {
+            Connection connection = DriverManager.getConnection(URL_DATABASE, SQL_USER, SQL_PASSWORD);
+            String request = "SELECT DISTINCT gender FROM people;";
+            PreparedStatement statement = connection.prepareStatement(request);
+            ResultSet resultSet = statement.executeQuery();
+
+            while(resultSet.next()) {
+
+                String hairColor = resultSet.getString("gender");
+
+                genders.add(hairColor);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return genders;
+    }
 }

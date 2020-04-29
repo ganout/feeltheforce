@@ -55,6 +55,12 @@ public class MainController {
         return "index";
     }
 
+
+    @GetMapping("/about-us")
+    public String aboutUs() {
+
+        return "about-us";
+    }
     public People randomPeople (List<People> people) {
         int sizePeople = people.size();
         Random randomNumberGenerator = new Random();

@@ -225,16 +225,21 @@ label {
     align-self: end;
     font-size: 1.5rem;
     line-height: 2rem;
-    padding-left: 6rem;
+    padding-right: 5vw;
+    padding-left: 10vh;
     font-family: 'StarJedi' ,serif;
     letter-spacing: 0.1rem;
+    position: relative;
 }
 .red {
-    height: 2vw;
-    width: 2vw;
+    height: 0.8rem;
+    width: 0.8rem;
     border-radius: 50%;
     border: 2px solid black;
     background-color: red;
+    position: absolute;
+    top: 8px;
+    right: 15px;
     z-index: 50000;
 }
 
@@ -261,7 +266,7 @@ label {
     left: 5vw;
     top: 0.5em;
     bottom: 0.5em;
-    width: calc(var(--width, 0) * 35%);
+    width: calc(var(--width, 0) * 5%);
     min-width: 0;
     max-width: calc(100% - 1em);
     background-color: #CBEDA0;
@@ -352,5 +357,9 @@ label {
     .grid-container-card {
         width: 80%;
         height: 25vh;
+    }
+    .saber, .lightsaber, .red, #handle {
+
+        display: none;
     }
 }

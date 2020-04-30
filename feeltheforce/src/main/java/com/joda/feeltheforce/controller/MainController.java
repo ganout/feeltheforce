@@ -61,7 +61,8 @@ public class MainController {
 
         return "about-us";
     }
-    public People randomPeople (List<People> people) {
+
+    public People randomPeople(List<People> people) {
         int sizePeople = people.size();
         Random randomNumberGenerator = new Random();
         int[] peoplePositions = randomNumberGenerator.ints(1, 0, sizePeople).toArray();

@@ -50,6 +50,23 @@ option {
     font-size: 1.5rem;
     margin-top: 0;
 }
+.left {
+    position: relative;
+}
+#reload {
+    position: absolute;
+
+    top:72%;
+    left: 90%;
+}
+
+#reload a {
+    color: #feda4a;
+}
+
+#reload a:hover {
+    color:#cbeda0;
+}
 
 .image-left, .image-right {
     display: flex;
@@ -218,7 +235,7 @@ label {
 #handle {
     grid-column: 1 / 4;
     grid-row: 1/2;
-    height: 2rem;
+    height: 2.4rem;
     width: 20vw;
     background-color: gray;
     z-index: 10;
@@ -230,15 +247,17 @@ label {
     font-family: 'StarJedi' ,serif;
     letter-spacing: 0.1rem;
     position: relative;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
 }
 .red {
-    height: 0.8rem;
+    height: 1rem;
     width: 0.8rem;
     border-radius: 50%;
-    border: 2px solid black;
+    border: 1px solid black;
     background-color: red;
     position: absolute;
-    top: 8px;
+    top: 11px;
     right: 15px;
     z-index: 50000;
 }
@@ -249,15 +268,16 @@ label {
     align-self: center;
     box-sizing: border-box;
     width: 70vw;
-    height: 2.5rem;
+    height: 2.7rem;
     background-color: transparent;
     border-radius: 1.5rem;
     position: relative;
     color: black;
+    filter:blur(1.7px)
 }
 
 .lightsaber::before {
-    height: 2rem;
+    height: 1.8rem;
     box-sizing: border-box;
     content: attr(data-label);
     display: flex;

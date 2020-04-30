@@ -18,7 +18,7 @@ public class PlanetRepository {
 
         try {
             Connection connection = DriverManager.getConnection(URL_DATABASE, SQL_USER, SQL_PASSWORD);
-            String request = "SELECT DISTINCT * FROM planet ORDER BY name;";
+            String request = "SELECT DISTINCT planet.name, planet.id FROM planet JOIN people ON planet.id = planet_id ORDER BY planet.name;";
             PreparedStatement statement = connection.prepareStatement(request);
             ResultSet resultSet = statement.executeQuery();
 

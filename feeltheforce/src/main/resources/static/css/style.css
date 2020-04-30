@@ -85,7 +85,7 @@ option {
 }
 
 label {
-    color: #f5f923;
+    color: #feda4a;
     font-size: 0.7rem;
     padding-left: 10px;
     font-family: 'StarJedi', serif;
@@ -298,7 +298,7 @@ label {
 }
 .title {
     grid-area: title;
-    color: #f5f923;
+    color: #feda4a;
     font-family: 'StarJedi', serif;
     font-size: 0.8rem;
     margin: auto;
@@ -322,7 +322,75 @@ label {
     font-size: 0.8rem;
     color: lightgray;
 }
+/*---------------------------------------------------------------------------------------*/
+#body-anim {
+    width: 100vw;
+    height: 100vh;
+    background: #000;
+    overflow: hidden;
+}
 
+.fade {
+    position: relative;
+    width: 100%;
+    min-height: 60vh;
+    top: -25px;
+    background-image: linear-gradient(0deg, transparent, black 75%);
+    z-index: 1;
+}
+
+.star-wars-anim {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    height: 1200px;
+    color: #feda4a;
+    font-family: 'StarJedi' ,serif;
+    font-size: 350%;
+    font-weight: 600;
+    letter-spacing: 0.5rem;
+    line-height: 150%;
+    perspective: 800px;
+    text-align: justify;
+}
+
+.anim {
+    position: relative;
+    top: 99999px;
+    transform-origin: 50% 100%;
+    animation: anim 60s linear;
+}
+
+.anim > .title-anim {
+    font-size: 90%;
+    text-align: center;
+}
+
+.anim > .title-anim h1 {
+    margin: 0 0 100px;
+    letter-spacing: 0.5rem;
+}
+
+.fas {
+    color: #feda4a;
+    position: absolute;
+    top: 2vh;
+    right: 2vh;
+    font-size: 2rem;
+    z-index: 10000;
+}
+
+@keyframes anim {
+    0% {
+        top: 0;
+        transform: rotateX(20deg)  translateZ(0);
+    }
+    100% {
+        top: -6000px;
+        transform: rotateX(25deg) translateZ(-2500px);
+    }
+}
+/*---------------------------------------------------------------------------------------*/
 @media only screen and (max-width: 660px) {
     .logo-title {
         flex-direction: column;

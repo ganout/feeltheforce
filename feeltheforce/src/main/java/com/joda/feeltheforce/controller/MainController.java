@@ -68,4 +68,10 @@ public class MainController {
         return people.get(peoplePositions[0]);
     }
 
+    @GetMapping("/start")
+    public String start() {
+
+        return "start";
+    }
+
 }

@@ -53,15 +53,16 @@ option {
 .left {
     position: relative;
 }
-#reload {
+#reload .fas {
     position: absolute;
-
     top:72%;
     left: 90%;
+    font-size: 1rem;
 }
 
 #reload a {
     color: #feda4a;
+
 }
 
 #reload a:hover {
@@ -428,9 +429,11 @@ label {
         width: 20vw;
         height: 20vw;
     }
+
     h1{
         font-size: 5rem;
     }
+
     .link a {
         position: absolute;
         top: 2vh;

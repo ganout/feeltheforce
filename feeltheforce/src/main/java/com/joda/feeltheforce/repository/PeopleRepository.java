@@ -18,7 +18,7 @@ public class PeopleRepository {
 
         try {
             Connection connection = DriverManager.getConnection(URL_DATABASE, SQL_USER, SQL_PASSWORD);
-            String request = "SELECT DISTINCT eye_color FROM people WHERE eye_color IS NOT NULL ORDER BY eye_color;";
+            String request = "SELECT DISTINCT eye_color FROM people WHERE eye_color != ' ' ORDER BY eye_color;";
             PreparedStatement statement = connection.prepareStatement(request);
             ResultSet resultSet = statement.executeQuery();
 
@@ -42,7 +42,7 @@ public class PeopleRepository {
 
         try {
             Connection connection = DriverManager.getConnection(URL_DATABASE, SQL_USER, SQL_PASSWORD);
-            String request = "SELECT DISTINCT hair_color FROM people WHERE hair_color IS NOT NULL ORDER BY hair_color;";
+            String request = "SELECT DISTINCT hair_color FROM people WHERE hair_color != ' ' ORDER BY hair_color;";
             PreparedStatement statement = connection.prepareStatement(request);
             ResultSet resultSet = statement.executeQuery();
 
@@ -66,7 +66,7 @@ public class PeopleRepository {
 
         try {
             Connection connection = DriverManager.getConnection(URL_DATABASE, SQL_USER, SQL_PASSWORD);
-            String request = "SELECT DISTINCT gender FROM people WHERE gender IS NOT NULL ORDER BY gender;";
+            String request = "SELECT DISTINCT gender FROM people WHERE gender != ' ' ORDER BY gender;";
             PreparedStatement statement = connection.prepareStatement(request);
             ResultSet resultSet = statement.executeQuery();
 

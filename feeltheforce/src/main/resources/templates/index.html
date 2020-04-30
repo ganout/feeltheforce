@@ -7,6 +7,9 @@
     <meta content="A small coded application during a 24h hackathon" name="description">
     <meta content="love, yoda, star wars" name="keywords">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
     <script crossorigin="anonymous" src="https://kit.fontawesome.com/68562b10c3.js"></script>
     <link href="css/style.css" rel="stylesheet">
@@ -25,7 +28,7 @@
     </div>
 </header>
 
-<form action="/match" method="post" th:object="${perso1}" class="force" name = "force" onsubmit="return playSound()">
+<form action="/match" method="post" th:object="${perso1}">
     <div class="grid-container">
         <div class="left">
             <div class="image-left">

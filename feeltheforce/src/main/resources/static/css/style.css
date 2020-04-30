@@ -33,9 +33,12 @@ option {
     height: 6vw;
 }
 
+.link {
+    margin-right: 1.3rem;
+}
 .link a {
     color: #CBEDA0;
-    font-size: 1.5rem;
+    font-size: 1.7rem;
 }
 
 .logo-title {

@@ -39,22 +39,4 @@ public class PlanetRepository {
         return planets;
     }
 
-    public String findById(int planetId) {
-
-        try {
-            Connection connection = DriverManager.getConnection(URL_DATABASE, SQL_USER, SQL_PASSWORD);
-            String request = "SELECT name FROM planet WHERE id=?;";
-            PreparedStatement statement = connection.prepareStatement(request);
-            statement.setInt(1, planetId);
-            ResultSet resultSet = statement.executeQuery();
-            resultSet.next();
-            String name = resultSet.getString("name");
-
-            return name;
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
 }

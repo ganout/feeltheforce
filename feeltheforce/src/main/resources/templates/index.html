@@ -10,6 +10,7 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
     <script crossorigin="anonymous" src="https://kit.fontawesome.com/68562b10c3.js"></script>
     <link href="css/style.css" rel="stylesheet">
+    <script type="text/javascript" src="lightsaber.js"></script>
 </head>
 <body>
 <header>
@@ -23,7 +24,8 @@
         <a href="/about-us"><i class="far fa-question-circle"></i></a>
     </div>
 </header>
-<form action="/match" method="post" th:object="${perso1}">
+
+<form action="/match" method="post" th:object="${perso1}" class="force" name = "force" onsubmit="return playSound()">
     <div class="grid-container">
         <div class="left">
             <div class="image-left">
@@ -130,6 +132,6 @@
     <div class="lightsaber"></div>
 </div>
 
-<script type="text/javascript" src="lightsaber.js"></script>
+
 </body>
 </html>

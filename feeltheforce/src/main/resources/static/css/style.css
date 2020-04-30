@@ -209,12 +209,42 @@ label {
     font-size: 0.8rem;
     letter-spacing: 0.05rem;
 }
-
+.saber {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 6fr;
+    justify-items: center;
+    align-items: center;
+}
+#handle {
+    grid-column: 1 / 4;
+    grid-row: 1/2;
+    height: 2rem;
+    width: 20vw;
+    background-color: gray;
+    z-index: 10;
+    align-self: end;
+    font-size: 1.5rem;
+    line-height: 2rem;
+    padding-left: 6rem;
+    font-family: 'StarJedi' ,serif;
+    letter-spacing: 0.1rem;
+}
+.red {
+    height: 2vw;
+    width: 2vw;
+    border-radius: 50%;
+    border: 2px solid black;
+    background-color: red;
+    z-index: 50000;
+}
 
 .lightsaber {
+    grid-column: 2 / 6;
+    grid-row: 1/2;
+    align-self: center;
     box-sizing: border-box;
-    width: 500px;
-    height: 3rem;
+    width: 70vw;
+    height: 2.5rem;
     background-color: transparent;
     border-radius: 1.5rem;
     position: relative;
@@ -222,22 +252,21 @@ label {
 }
 
 .lightsaber::before {
+    height: 2rem;
     box-sizing: border-box;
     content: attr(data-label);
     display: flex;
     align-items: center;
     position: absolute;
-    left: 0.5em;
+    left: 5vw;
     top: 0.5em;
     bottom: 0.5em;
-    width: calc(var(--width, 0) * 1%);
-    min-width: 2rem;
+    width: calc(var(--width, 0) * 35%);
+    min-width: 0;
     max-width: calc(100% - 1em);
     background-color: #CBEDA0;
+    border: 0.5rem solid #2EFF29;
     border-radius: 1em;
-    padding: 1em;
-    font-family: 'StarJedi';
-    letter-spacing: 0.1rem;
 }
 /*--  ABOUT US  --*/
 .dev {

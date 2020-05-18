@@ -1,6 +1,6 @@
 # Feeltheforce
 
-Feel the force is a project made on 24h Hackaton at the Wild Code School 
+Feel the force is a project made on a 24h Hackaton at the Wild Code School 
 
 ### Description
 
